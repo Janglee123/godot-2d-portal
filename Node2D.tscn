@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Portal/Portal.gd" type="Script" id=3]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "icon.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="SegmentShape2D" id=3]
+b = Vector2( 0, 59 )
+
+[sub_resource type="SegmentShape2D" id=4]
+b = Vector2( 0, 59 )
+
+[sub_resource type="SegmentShape2D" id=5]
+b = Vector2( 59, 0 )
+
+[sub_resource type="SegmentShape2D" id=6]
+b = Vector2( 59, 0 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 2 )
+format = 1
+tile_data = PoolIntArray( 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0 )
+
+[node name="Portal" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="PortalA" type="Area2D" parent="Portal"]
+position = Vector2( 843.336, 450.347 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/PortalA"]
+shape = SubResource( 3 )
+
+[node name="PortalB" type="Area2D" parent="Portal"]
+position = Vector2( 579.047, 447.895 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/PortalB"]
+shape = SubResource( 4 )
+
+[node name="Portal2" type="Node2D" parent="."]
+editor/display_folded = true
+script = ExtResource( 3 )
+
+[node name="PortalA" type="Area2D" parent="Portal2"]
+position = Vector2( 335.593, 451.053 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal2/PortalA"]
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PortalB" type="Area2D" parent="Portal2"]
+position = Vector2( 160, 450 )
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal2/PortalB"]
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="body_entered" from="Portal/PortalA" to="Portal" method="_on_PortalA_body_entered"]
+[connection signal="body_exited" from="Portal/PortalA" to="Portal" method="_on_PortalA_body_exited"]
+[connection signal="body_entered" from="Portal/PortalB" to="Portal" method="_on_PortalB_body_entered"]
+[connection signal="body_exited" from="Portal/PortalB" to="Portal" method="_on_PortalB_body_exited"]
+[connection signal="body_entered" from="Portal2/PortalA" to="Portal2" method="_on_PortalA_body_entered"]
+[connection signal="body_exited" from="Portal2/PortalA" to="Portal2" method="_on_PortalA_body_exited"]
+[connection signal="body_entered" from="Portal2/PortalB" to="Portal2" method="_on_PortalB_body_entered"]
+[connection signal="body_exited" from="Portal2/PortalB" to="Portal2" method="_on_PortalB_body_exited"]
