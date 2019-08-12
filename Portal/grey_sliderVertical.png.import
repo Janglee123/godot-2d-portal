@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player_hang.png-d91ff7bcad5b25ab3e81c4ed0ebfe6d4.stex"
+path="res://.import/grey_sliderVertical.png-2fddaa4f5b52db4f81525f0e9d8c3271.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Poses/player_hang.png"
-dest_files=[ "res://.import/player_hang.png-d91ff7bcad5b25ab3e81c4ed0ebfe6d4.stex" ]
+source_file="res://Portal/grey_sliderVertical.png"
+dest_files=[ "res://.import/grey_sliderVertical.png-2fddaa4f5b52db4f81525f0e9d8c3271.stex" ]
 
 [params]
 

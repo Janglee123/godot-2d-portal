@@ -2,11 +2,10 @@
 
 [ext_resource path="res://Portal/Portal.gd" type="Script" id=1]
 
-
-[sub_resource type="SegmentShape2D" id=3]
+[sub_resource type="SegmentShape2D" id=1]
 b = Vector2( 0, 59 )
 
-[sub_resource type="SegmentShape2D" id=4]
+[sub_resource type="SegmentShape2D" id=2]
 b = Vector2( 0, 59 )
 
 [node name="Portal" type="Node2D"]
@@ -16,14 +15,10 @@ script = ExtResource( 1 )
 position = Vector2( 843.336, 450.347 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalA"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="PortalB" type="Area2D" parent="."]
 position = Vector2( 579.047, 447.895 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalB"]
-shape = SubResource( 4 )
-[connection signal="body_entered" from="PortalA" to="." method="_on_PortalA_body_entered"]
-[connection signal="body_exited" from="PortalA" to="." method="_on_PortalA_body_exited"]
-[connection signal="body_entered" from="PortalB" to="." method="_on_PortalB_body_entered"]
-[connection signal="body_exited" from="PortalB" to="." method="_on_PortalB_body_exited"]
+shape = SubResource( 2 )

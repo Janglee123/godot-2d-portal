@@ -89,6 +89,5 @@ func change_state(state):
 		pass
 	
 	current_state = state;
-	$Sprite.animation = STATE_NAME[state];
 	
 	pass
